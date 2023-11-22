@@ -1,5 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/redux/provider";
+// import { ToastProvider } from "react-toast-notifications";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +13,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {/* <ToastProvider> */}
+        <Providers>{children}</Providers>
+        {/* </ToastProvider> */}
+      </body>
     </html>
   );
 }
