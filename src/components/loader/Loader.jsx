@@ -3,7 +3,7 @@ import { Skeleton } from "@mui/material";
 import { LoaderWrapper, SkeletonContainer } from "./style";
 
 const Loader = () => {
-  const data = [1, 2, 3, 4];
+  const data = [1, 2, 3];
   return (
     <LoaderWrapper>
       {data.map((index) => {

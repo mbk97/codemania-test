@@ -77,3 +77,12 @@ export const ProductsCardWrapper = styled.div`
 export const NoProductText = styled.p`
   margin-left: 20px;
 `;
+
+export const Select = styled.select`
+  cursor: pointer;
+  padding: 0 5px;
+
+  option {
+    cursor: pointer;
+  }
+`;
