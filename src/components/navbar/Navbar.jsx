@@ -9,7 +9,7 @@ const Navbar = () => {
       <LogoWrapper>
         <Image src={logo} height={50} />
       </LogoWrapper>
-      <NavText>Codemania Products Page</NavText>
+      <NavText>Codemania Products</NavText>
     </NavWrapper>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   LeftContent,
   ProductDetailImage,
@@ -6,22 +6,58 @@ import {
   RightContent,
   ProductDetailSmallImgWrapper,
   ProductDetailSmallImg,
+  ProductText,
+  BoldWrapper,
 } from "./style";
-import { CardImage } from "../productCard/style";
 
 const ProductDetailsModal = ({ productDetail }) => {
-  console.log(productDetail);
+  const imgArr = [productDetail.thumbnail, ...productDetail.images];
+  const [image, setImage] = useState(imgArr[0]);
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <ProductDetailsWrapper>
       <LeftContent>
-        <ProductDetailImage src={productDetail.thumbnail} />
+        <ProductDetailImage src={image} />
         <ProductDetailSmallImgWrapper>
           {productDetail?.images.map((img, index) => {
-            return <ProductDetailSmallImg src={img} key={index} />;
+            return (
+              <ProductDetailSmallImg
+                src={img}
+                key={index}
+                className={activeIndex === index ? "active" : ""}
+                onClick={() => {
+                  setImage(img);
+                  setActiveIndex(index);
+                }}
+              />
+            );
           })}
+          <p>**Click on any image to preview</p>
         </ProductDetailSmallImgWrapper>
+        <ProductText>
+          <BoldWrapper>Title: </BoldWrapper> {productDetail.title}
+        </ProductText>
+        <ProductText>
+          <BoldWrapper>Brand:</BoldWrapper> {productDetail.brand}
+        </ProductText>
+        <ProductText>
+          <BoldWrapper>Category:</BoldWrapper> {productDetail.category}
+        </ProductText>
+        <ProductText>
+          <BoldWrapper>Price:</BoldWrapper> $
+          {productDetail.price.toLocaleString()}
+        </ProductText>
+        <ProductText>
+          <BoldWrapper>Rating:</BoldWrapper> {productDetail.rating}
+        </ProductText>
+        <ProductText>
+          <BoldWrapper>Stock:</BoldWrapper> {productDetail.stock}
+        </ProductText>
+        <ProductText>
+          <BoldWrapper>Description:</BoldWrapper> {productDetail.description}
+        </ProductText>
       </LeftContent>
-      <RightContent></RightContent>
     </ProductDetailsWrapper>
   );
 };

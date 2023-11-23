@@ -17,7 +17,11 @@ export const LogoWrapper = styled.div`
 
 export const NavText = styled.p`
   text-transform: capitalize;
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   color: #ffffff;
-  margin-right: 20px;
+  margin-right: 40px;
+
+  @media (max-width: 600px) {
+    margin-right: 20px;
+  }
 `;

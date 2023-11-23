@@ -31,13 +31,12 @@ const ProductCard = ({ product, handleOpenMenu }) => {
         </CardTextOne>
         <CardTextOne>Discount: {product?.discountPercentage}%</CardTextOne>
         <CardTextOne>Rating: {product?.rating}</CardTextOne>
-
-        <ButtonWrapper>
-          <ViewButton onClick={() => handleOpenMenu(product)}>
-            View More
-          </ViewButton>
-        </ButtonWrapper>
       </CardBody>
+      <ButtonWrapper>
+        <ViewButton onClick={() => handleOpenMenu(product)}>
+          View More
+        </ViewButton>
+      </ButtonWrapper>
     </Card>
   );
 };
