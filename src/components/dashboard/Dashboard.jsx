@@ -8,6 +8,7 @@ import {
   PaginationBtn,
   FlexWrapper,
   NoProductText,
+  Select,
 } from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../navbar/Navbar";
@@ -26,7 +27,7 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [productDetail, setProductDetail] = useState({});
-  const [filterItem, setFilterItem] = useState("");
+  const [filterItem, setFilterItem] = useState("All");
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -45,51 +46,50 @@ const Dashboard = () => {
   };
 
   const productsData = useSelector((state) => state.product.productsData);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await fetchAllProducts();
-        if (data) {
-          dispatch(setProducts(data));
-          setFilteredProducts(
-            filterItem === ""
-              ? data?.products
-              : data?.products.filter(
-                  (product) => product.category === filterItem,
-                ),
-          );
-        }
-      } catch (e) {
-        toast.error(e.message, {
-          theme: "colored",
-        });
-      } finally {
-        setLoading(false);
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const data = await fetchAllProducts();
+      if (data) {
+        dispatch(setProducts(data));
+        setFilteredProducts(
+          filterItem === "All"
+            ? data?.products
+            : data?.products.filter(
+                (product) => product.category === filterItem,
+              ),
+        );
       }
-    };
-
+    } catch (e) {
+      toast.error(e.message, {
+        theme: "colored",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
     fetchData();
   }, [filterItem]);
+
   return (
     <React.Fragment>
       <ToastContainer />
       <Navbar />
       <FlexWrapper>
         <Title>Products</Title>
-        <select onChange={handleChange}>
-          <option selected disabled value="phone" key="">
-            Filter Products
-          </option>
-          {categoriesData.map(({ id, name, label }) => {
-            return (
-              <option value={name} key={id}>
-                {label}
-              </option>
-            );
-          })}
-        </select>
+        {!loading && filteredProducts?.length !== 0 && (
+          <Select onChange={handleChange} defaultValue={filterItem}>
+            <option value="All">All</option>
+            {categoriesData.map(({ id, name, label }) => {
+              return (
+                <option value={name} key={id}>
+                  {label}
+                </option>
+              );
+            })}
+          </Select>
+        )}
       </FlexWrapper>
       {loading ? (
         <Loader />
