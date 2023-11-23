@@ -8,6 +8,11 @@ export const FlexWrapper = styled.div`
   margin-right: 30px;
   flex-wrap: wrap;
   gap: 20px;
+  margin-top: 20px;
+
+  @media (max-width: 600px) {
+    margin-right: 20px;
+  }
 
   select {
     height: 40px;
@@ -20,6 +25,9 @@ export const FlexWrapper = styled.div`
 
 export const Title = styled.h1`
   margin-left: 20px;
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const ProductCardContainer = styled.div`
