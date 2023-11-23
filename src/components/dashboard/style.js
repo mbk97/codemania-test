@@ -12,6 +12,11 @@ export const ProductCardContainer = styled.div`
 export const ProductsCardWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-left: 20px;
+  justify-content: space-evenly;
+  gap: 20px;
+
+  @media (max-width: 600px) {
+    margin: 0 20px;
+    gap: 20px;
+  }
 `;

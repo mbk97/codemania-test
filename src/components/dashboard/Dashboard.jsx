@@ -8,6 +8,8 @@ import ProductDetailsModal from "../productDetails/ProductDetailsModal";
 import { fetchAllProducts } from "@/services";
 import { setProducts } from "@/redux/productSlice";
 import ProductCard from "../productCard/ProductCard";
+import Loader from "../loader/Loader";
+import { toast } from "react-toastify";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -27,10 +29,17 @@ const Dashboard = () => {
     try {
       setLoading(true);
       const data = await fetchAllProducts();
-      dispatch(setProducts(data));
+      if (data) {
+        toast.success("Successful", {
+          theme: "colored",
+        });
+        dispatch(setProducts(data));
+      }
       setLoading(false);
     } catch (e) {
-      console.error("Error", e);
+      toast.error(e.message, {
+        theme: "colored",
+      });
       setLoading(false);
     }
   };
@@ -44,19 +53,24 @@ const Dashboard = () => {
     <React.Fragment>
       <Navbar />
       <Title>Products</Title>
-      <ProductCardContainer>
-        <ProductsCardWrapper>
-          {productsData?.products?.map((product) => {
-            return (
-              <ProductCard
-                key={product.id}
-                product={product}
-                handleOpenMenu={handleOpenMenu}
-              />
-            );
-          })}
-        </ProductsCardWrapper>
-      </ProductCardContainer>
+      {loading && <Loader />}
+      {!loading && productsData?.products?.length !== 0 ? (
+        <ProductCardContainer>
+          <ProductsCardWrapper>
+            {productsData?.products?.map((product) => {
+              return (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  handleOpenMenu={handleOpenMenu}
+                />
+              );
+            })}
+          </ProductsCardWrapper>
+        </ProductCardContainer>
+      ) : (
+        <p>No product found</p>
+      )}
       <CustomModal open={open} handleClose={handleCloseMenu}>
         <ProductDetailsModal productDetail={productDetail} />
       </CustomModal>
