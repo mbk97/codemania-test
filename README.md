@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project Title
 
-## Getting Started
+Codemania Products Page
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# Project Features
+1. Get All Products
+2. Filter Products based on category
+3. Paginate Product results
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+# Demo Link
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The link to the live project [https://mbk-portfolio.vercel.app/](https://codemania-test-livid.vercel.app/)
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+# Screenshot 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+HomePage
+![Codemania-Products-page1](https://github.com/mbk97/codemania-test/assets/63726675/3319a437-fb21-4ee2-9562-05d1472218f9)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Fragrances Filter Result
+![Codemania-Products-page2](https://github.com/mbk97/codemania-test/assets/63726675/264e3950-4ffd-4899-a6d2-977393b9d463)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+Laptops Filter Result
+![Codemania-Products-page3](https://github.com/mbk97/codemania-test/assets/63726675/13edb50b-02eb-4139-8b70-16a999ba1324)
+
+
+
+
+# Technologies
+
+Next js
+Css
+Styled components
+Material UI
+Redux toolkit
+
+
+# Setup
+
+* download or clone the repository
+* run npm install
+* run **npm run dev** to start the project locally
+
+# Status
+
+completed
