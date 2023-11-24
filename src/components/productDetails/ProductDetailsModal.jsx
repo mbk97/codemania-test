@@ -12,15 +12,15 @@ import {
 
 const ProductDetailsModal = ({ productDetail }) => {
   const imgArr = [productDetail.thumbnail, ...productDetail.images];
-  const [image, setImage] = useState(imgArr[0]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [image, setImage] = useState(imgArr[activeIndex]);
 
   return (
     <ProductDetailsWrapper>
       <LeftContent>
         <ProductDetailImage src={image} />
         <ProductDetailSmallImgWrapper>
-          {productDetail?.images.map((img, index) => {
+          {imgArr.map((img, index) => {
             return (
               <ProductDetailSmallImg
                 src={img}

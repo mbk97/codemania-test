@@ -22,6 +22,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ReactPaginate from "react-paginate";
 import { categoriesData } from "@/utils/data";
+import { ViewButton } from "../productCard/style";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -71,7 +72,6 @@ const Dashboard = () => {
   useEffect(() => {
     fetchData();
   }, [filterItem]);
-
   return (
     <React.Fragment>
       <ToastContainer />
@@ -109,26 +109,26 @@ const Dashboard = () => {
                 />
               ))}
           </ProductsCardWrapper>
-          <PaginationWrapper>
-            <ReactPaginate
-              previousLabel={<PaginationBtn>{"<"}</PaginationBtn>}
-              nextLabel={<PaginationBtn>{">"}</PaginationBtn>}
-              breakLabel={"..."}
-              breakClassName={"break-me"}
-              pageCount={Math.ceil(
-                productsData?.products?.length / productsPerPage,
-              )}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={5}
-              onPageChange={({ selected }) => setCurrentPage(selected)}
-              containerClassName={"pagination"}
-              activeClassName={"active"}
-            />
-          </PaginationWrapper>
+          {filterItem === "All" && (
+            <PaginationWrapper>
+              <ReactPaginate
+                previousLabel={<ViewButton>Prev</ViewButton>}
+                nextLabel={<ViewButton>Next</ViewButton>}
+                breakLabel={"..."}
+                breakClassName={"break-me"}
+                pageCount={Math.ceil(
+                  productsData?.products?.length / productsPerPage,
+                )}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={({ selected }) => setCurrentPage(selected)}
+                containerClassName={"pagination"}
+                activeClassName={"active"}
+              />
+            </PaginationWrapper>
+          )}
         </ProductCardContainer>
-      ) : (
-        <NoProductText>No products found</NoProductText>
-      )}
+      ) : null}
       <CustomModal open={open} handleClose={handleCloseMenu}>
         <ProductDetailsModal productDetail={productDetail} />
       </CustomModal>
