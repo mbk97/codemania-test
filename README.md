@@ -11,7 +11,7 @@ Codemania Products Page
 
 # Demo Link
 
-The link to the live project [https://mbk-portfolio.vercel.app/](https://codemania-test-livid.vercel.app/)
+The link to the live project  https://codemania-test-livid.vercel.app/
 
 
 # Screenshot 
