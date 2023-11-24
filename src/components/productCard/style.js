@@ -42,8 +42,8 @@ export const ButtonWrapper = styled.div`
   margin: 15px 0;
 `;
 export const ViewButton = styled.button`
-  height: 30px;
-  width: 130px;
+  height: 40px;
+  padding: 10px;
   background-color: black;
   color: white;
   outline: 0;
