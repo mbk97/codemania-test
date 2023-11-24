@@ -7,11 +7,12 @@ Codemania Products Page
 1. Get All Products
 2. Filter Products based on category
 3. Paginate Product results
+4. Mobile Responsiveness
 
 
 # Demo Link
 
-The link to the live project [https://mbk-portfolio.vercel.app/](https://codemania-test-livid.vercel.app/)
+The link to the live project  https://codemania-test-livid.vercel.app/
 
 
 # Screenshot 
