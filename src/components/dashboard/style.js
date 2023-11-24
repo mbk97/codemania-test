@@ -32,6 +32,7 @@ export const Title = styled.h1`
 
 export const ProductCardContainer = styled.div`
   margin-top: 40px;
+  margin-bottom: 50px;
 
   .pagination {
     display: flex;
