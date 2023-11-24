@@ -7,6 +7,7 @@ Codemania Products Page
 1. Get All Products
 2. Filter Products based on category
 3. Paginate Product results
+4. Mobile Responsiveness
 
 
 # Demo Link
